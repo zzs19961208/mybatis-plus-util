@@ -109,9 +109,9 @@ public class MyBatisPlusUtil extends QueryContextThreadLocal {
      * 反射构筑CountQuery后获取Bean查询再转成对应类型
      *
      * @param countBuilder 计数查询建造者
-     * @return {@link Integer}
+     * @return {@link Long}
      */
-    public static <E> Integer countByReflect(CountBuilder<E> countBuilder) {
+    public static <E> Long countByReflect(CountBuilder<E> countBuilder) {
         QueryContext.setMatchMode(countBuilder.getMatchMode());
         QueryContext.setGroupIds(countBuilder.getGroupIds());
         QueryContext.setConsumer(countBuilder.getConsumer());
@@ -127,9 +127,9 @@ public class MyBatisPlusUtil extends QueryContextThreadLocal {
      * @param e            查询参数
      * @param matchMode    匹配模式
      * @param ignoreParams 忽略参数名
-     * @return {@link Integer}
+     * @return {@link Long}
      */
-    public static <E> Integer countByReflect(E e, MatchMode matchMode, String[] groupIds, Consumer<QueryWrapper<?>> consumer, String... ignoreParams) {
+    public static <E> Long countByReflect(E e, MatchMode matchMode, String[] groupIds, Consumer<QueryWrapper<?>> consumer, String... ignoreParams) {
         QueryContext.setConsumer(consumer);
         QueryContext.setGroupIds(groupIds);
         QueryContext.setIgnoreParams(ignoreParams);
@@ -142,9 +142,9 @@ public class MyBatisPlusUtil extends QueryContextThreadLocal {
      *
      * @param e         查询参数
      * @param matchMode 匹配模式
-     * @return {@link Integer}
+     * @return {@link Long}
      */
-    public static <E> Integer countByReflect(E e, MatchMode matchMode) {
+    public static <E> Long countByReflect(E e, MatchMode matchMode) {
         QueryContext.setMatchMode(matchMode);
         return countByReflect(e);
     }
@@ -154,9 +154,9 @@ public class MyBatisPlusUtil extends QueryContextThreadLocal {
      *
      * @param e            查询参数
      * @param ignoreParams 忽略参数名
-     * @return {@link Integer}
+     * @return {@link Long}
      */
-    public static <E> Integer countByReflect(E e, String... ignoreParams) {
+    public static <E> Long countByReflect(E e, String... ignoreParams) {
         QueryContext.setIgnoreParams(ignoreParams);
         return countByReflect(e);
     }
@@ -165,12 +165,12 @@ public class MyBatisPlusUtil extends QueryContextThreadLocal {
      * 反射构筑CountQuery后获取Bean查询再转成对应类型
      *
      * @param e 查询参数
-     * @return {@link Integer}
+     * @return {@link Long}
      */
-    public static <E> Integer countByReflect(E e) {
+    public static <E> Long countByReflect(E e) {
         QueryWrapper query = getCountQueryWrapper(e);
         BaseMapper<?> baseMapper = ApplicationContextUtil.getMapperBean(e.getClass());
-        return baseMapper.selectList(query).size();
+        return baseMapper.selectCount(query);
     }
 
     //===================================================================================================================================================================
