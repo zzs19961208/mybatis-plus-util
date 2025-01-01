@@ -96,7 +96,7 @@ public class CountBuilder<E> {
         return this;
     }
 
-    public Integer doCountByReflect() {
+    public Long doCountByReflect() {
         return MyBatisPlusUtil.countByReflect(this);
     }
 }
