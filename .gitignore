@@ -1,7 +1,12 @@
-# Compiled class file
+# IntelliJ IDEA specific
+.idea/
+*.iml
+*.iws
+
+# Compiled source
 *.class
 
-# Log file
+# Logs
 *.log
 
 # BlueJ files
@@ -18,8 +23,43 @@
 *.zip
 *.tar.gz
 *.rar
+
+# Virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Generated files
+*.pyc
+*.pyo
+*.pyd
+
+# Gradle files
+.gradle/
+build/
+
+# Maven files
 target/
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+# Eclipse specific
+.settings/
+.project
+.classpath
+
+# OS generated files #
+.DS_Store
+Thumbs.db
+
+# Java Project specific
+*.class
+*.log
+*.tmp
+*.out
+
+# Temporary files
+*.swp
+*.swo
+
+# Exclude binary files
+*.dll
+*.exe
+*.so
+*.dylib
